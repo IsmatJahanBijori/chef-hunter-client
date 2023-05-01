@@ -5,7 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import {Link, NavLink } from 'react-router-dom';
+import './Header.css'
 
 const Header = () => {
     return (
@@ -15,9 +16,9 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto mt-16">
-                        <Link to='/' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Home</Link>
-                        <Link to='/blog' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Blog</Link>
-                        <Link to='/chefRecipe' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Chefs Recipe</Link>
+                        <NavLink className='active' to='/' style={{ textDecoration: 'none', marginRight: '5px' }}>Home</NavLink>
+                        <Link className='active' to='/blog' style={{ textDecoration: 'none', marginRight: '5px' }}>Blog</Link>
+                        <Link className='active' to='/chefRecipe' style={{ textDecoration: 'none', marginRight: '5px' }}>Chefs Recipe</Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="">Profile</Nav.Link>
