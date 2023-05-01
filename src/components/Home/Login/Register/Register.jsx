@@ -1,15 +1,20 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useContext, useState } from 'react';
-import { Button, Container } from 'react-bootstrap';
+import { Button, Container, Spinner } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, loading } = useContext(AuthContext)
     const [error, setError] = useState('')
-    const navigate = useNavigate()
 
+    const navigate = useNavigate()
+    if (loading) {
+        <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </Spinner>
+    }
     const handleRegister = (event) => {
         event.preventDefault()
         setError('')
@@ -19,16 +24,16 @@ const Register = () => {
         const photo = form.photo.value
         const password = form.password.value
         console.log(name, photo, email, password)
-        if((email, password)){
+        if ((email, password)) {
             createUser(email, password)
-            .then(result => {
-                const createdUser = result.user
-                console.log(createdUser)
-                navigate('/')
-            })
-            .catch(error => {
-                setError(error.message)
-            })
+                .then(result => {
+                    const createdUser = result.user
+                    console.log(createdUser)
+                    navigate('/')
+                })
+                .catch(error => {
+                    setError(error.message)
+                })
         }
 
         // validations

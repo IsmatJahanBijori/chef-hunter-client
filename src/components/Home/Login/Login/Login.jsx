@@ -1,16 +1,20 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useContext, useState } from 'react';
-import { Button, Container } from 'react-bootstrap';
+import { Button, Container, Spinner } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
-    const { signIn, googleUser, githubUser } = useContext(AuthContext)
+    const { signIn, googleUser, githubUser,loading } = useContext(AuthContext)
     const [error, setError] = useState('')
     const navigate = useNavigate()
-
+    if(loading){
+        <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    }
     const handleSignInUser = event => {
         event.preventDefault()
         setError('')
