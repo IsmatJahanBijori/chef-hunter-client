@@ -14,19 +14,19 @@ const Header = () => {
                 <Navbar.Brand href="#home" className='fw-bold'>Aurora Chef Hunter</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mx-auto mt-16">
-                <Link to='/' style={{ textDecoration: 'none', color: 'black', marginRight:'5px' }}>Home</Link>
-                <Link to='' style={{ textDecoration: 'none', color: 'black', marginRight:'5px' }}>About</Link>
-                <Link to='' style={{ textDecoration: 'none', color: 'black', marginRight:'5px' }}>Career</Link>
-            </Nav>
+                    <Nav className="mx-auto mt-16">
+                        <Link to='/' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Home</Link>
+                        <Link to='/blog' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Blog</Link>
+                        <Link to='/chefRecipe' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Chefs Recipe</Link>
+                    </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">Profile</Nav.Link>
+                        <Nav.Link href="">Profile</Nav.Link>
                         <Button className='btn btn-secondary'>Login</Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-    </Navbar>
-   
+        </Navbar>
+
     );
 };
 

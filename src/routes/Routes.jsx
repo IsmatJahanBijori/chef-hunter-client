@@ -6,10 +6,12 @@ import LoginLayout from '../components/Layout/LoginLayout'
 import Login from '../components/Home/Login/Login/Login'
 import Register from '../components/Home/Login/Register/Register'
 import Main from '../components/Layout/Main';
+import ErrorPage from '../components/ErrorPage/ErrorPage';
 const router=createBrowserRouter([
     {
         path: '/',
-        element: <Main></Main>
+        element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>
     },
     {
         path: '/',
