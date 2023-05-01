@@ -18,7 +18,8 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
         console.log(email, password)
-        signIn(email, password)
+        if((email, password)){
+            signIn(email, password)
             .then(result => {
                 const createdUser = result.user
                 console.log(createdUser)
@@ -27,6 +28,7 @@ const Login = () => {
             .catch(error => {
                 setError(error.message)
             })
+        }
         event.target.reset()
 
     }

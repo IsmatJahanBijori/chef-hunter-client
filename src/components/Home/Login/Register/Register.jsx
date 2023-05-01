@@ -19,7 +19,8 @@ const Register = () => {
         const photo = form.photo.value
         const password = form.password.value
         console.log(name, photo, email, password)
-        createUser(email, password)
+        if((email, password)){
+            createUser(email, password)
             .then(result => {
                 const createdUser = result.user
                 console.log(createdUser)
@@ -28,6 +29,21 @@ const Register = () => {
             .catch(error => {
                 setError(error.message)
             })
+        }
+
+        // validations
+        if (!/(?=.*[A-Z])/.test(password)) {
+            setError('Please add at least one uppercase');
+            return;
+        }
+        else if (!/(?=.*[0-9].*[0-9])/.test(password)) {
+            setError('Please add at least two numbers');
+            return
+        }
+        else if (password.length < 6) {
+            setError('Please add at least 6 characters in your password')
+            return;
+        }
         event.target.reset()
     }
     return (
