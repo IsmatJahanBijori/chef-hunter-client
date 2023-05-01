@@ -16,7 +16,7 @@ const Header = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-                
+
 
             })
             .catch(error => {
@@ -35,10 +35,11 @@ const Header = () => {
                         <Link className='active' to='/chefRecipe' style={{ textDecoration: 'none', marginRight: '5px' }}>Chefs Recipe</Link>
                     </Nav>
                     <Nav>
-                        <Image src="https://i.ibb.co/StStwZQ/action.png" style={{ height: '40px', marginRight: '10px' }} roundedCircle />
-
                         {user ?
-                            <Link onClick={handleLogout}><Button variant="secondary" style={{ textDecoration: 'none', marginRight: '10px' }}>LogOut</Button></Link> :
+                            <div>
+                                <Image src="https://i.ibb.co/StStwZQ/action.png" style={{ height: '40px', marginRight: '10px' }} roundedCircle />
+                                <Link onClick={handleLogout}><Button variant="secondary" style={{ textDecoration: 'none', marginRight: '10px' }}>LogOut</Button></Link>
+                            </div> :
                             <div>
                                 <Link to='/login'><Button variant="secondary" style={{ textDecoration: 'none', marginRight: '10px' }}>Login</Button></Link>
                                 <Link to='/register'><Button variant="secondary" style={{ textDecoration: 'none', marginRight: '10px' }}>Register</Button></Link>
