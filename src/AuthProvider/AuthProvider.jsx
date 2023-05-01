@@ -2,7 +2,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 export const AuthContext = createContext(null)
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 
 // eslint-disable-next-line react/prop-types
 const auth = getAuth(app)
@@ -10,10 +10,16 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true);
-    const createUser=(email, password)=>{
+    // eslint-disable-next-line no-unused-vars
+    const googleProvider = new GoogleAuthProvider();
+    // eslint-disable-next-line no-unused-vars
+    const githubProvider = new GithubAuthProvider();
+
+    // email, password 
+    const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
-    const signIn=(email, password)=>{
+    const signIn = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -21,10 +27,17 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signOut(auth);
     }
+    // google
+    const googleUser = (googleProvider) => {
+        return signInWithPopup(auth, googleProvider)
+    }
+    // github
+    const githubUser = (githubProvider) => {
+        return signInWithPopup(auth, githubProvider)
+    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
-            // console.log('logged in user inside auth state observer', loggedUser)
             setUser(loggedUser);
             setLoading(false);
         })
@@ -34,7 +47,7 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
     const authInfo = {
-        user, createUser, loading, signIn, logOut
+        user, createUser, loading, signIn, logOut, googleUser,githubUser
     }
     return (
         <AuthContext.Provider value={authInfo}>

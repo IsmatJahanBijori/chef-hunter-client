@@ -4,10 +4,10 @@ import { Button, Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
-
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext)
+    const { signIn, googleUser, githubUser } = useContext(AuthContext)
     const [error, setError] = useState('')
     const navigate = useNavigate()
 
@@ -18,19 +18,47 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
         console.log(email, password)
-        if((email, password)){
+        // email, password
+        if ((email, password)) {
             signIn(email, password)
+                .then(result => {
+                    const createdUser = result.user
+                    console.log(createdUser)
+                    navigate('/')
+                })
+                .catch(error => {
+                    setError(error.message)
+                })
+        }
+
+        event.target.reset()
+
+    }
+
+    const googleSignIn = () => {
+        // google
+        // eslint-disable-next-line no-undef
+        googleUser()
             .then(result => {
-                const createdUser = result.user
-                console.log(createdUser)
+                const loggedUser = result.user
+                console.log(loggedUser)
                 navigate('/')
             })
             .catch(error => {
                 setError(error.message)
             })
-        }
-        event.target.reset()
+    }
 
+    const githubSignIn=()=>{
+        githubUser()
+            .then(result => {
+                const loggedUser = result.user
+                console.log(loggedUser)
+                navigate('/')
+            })
+            .catch(error => {
+                setError(error.message)
+            })
     }
     return (
         <Container className='w-25 mx-auto mt-5'>
@@ -46,6 +74,13 @@ const Login = () => {
                 <Form.Group className="mb-3">
                     <Button type="submit">Sign in</Button>
                 </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Button type="submit" onClick={googleSignIn}><FaGoogle className='me-2 text-danger'/>Google Sign in</Button>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Button type="submit" className='btn btn-secondary'  onClick={githubSignIn}><FaGithub className='me-2'/>Github Sign in</Button>
+                </Form.Group>
                 <p><small>No account? <Link to='/register'>Register</Link></small></p>
             </Form>
             <p><small className='text-danger'>{error}</small></p>
@@ -54,3 +89,16 @@ const Login = () => {
 };
 
 export default Login;
+
+{/**
+if ((email, password)) {
+            signIn(email, password)
+                .then(result => {
+                    const createdUser = result.user
+                    console.log(createdUser)
+                    navigate('/')
+                })
+                .catch(error => {
+                    setError(error.message)
+                })
+        } */}
