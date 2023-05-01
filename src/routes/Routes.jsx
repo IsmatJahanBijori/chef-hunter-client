@@ -7,11 +7,23 @@ import Login from '../components/Home/Login/Login/Login'
 import Register from '../components/Home/Login/Register/Register'
 import Main from '../components/Layout/Main';
 import ErrorPage from '../components/ErrorPage/ErrorPage';
+import Blog from '../components/Home/Blog/Blog';
+import ChefsRecipe from '../components/Home/ChefsRecipe/ChefsRecipe';
 const router=createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
-        errorElement: <ErrorPage></ErrorPage>
+        errorElement: <ErrorPage></ErrorPage>,
+        children:[
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+            {
+                path: '/chefRecipe',
+                element: <ChefsRecipe/>
+            }
+        ]
     },
     {
         path: '/',
