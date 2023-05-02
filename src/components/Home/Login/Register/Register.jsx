@@ -11,9 +11,9 @@ const Register = () => {
 
     const navigate = useNavigate()
     if (loading) {
-        <Spinner animation="border" role="status">
+        return (<Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        </Spinner>)
     }
     const handleRegister = (event) => {
         event.preventDefault()

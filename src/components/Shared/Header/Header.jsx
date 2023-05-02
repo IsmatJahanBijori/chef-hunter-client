@@ -16,8 +16,6 @@ const Header = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-
-
             })
             .catch(error => {
                 console.log(error)
@@ -26,10 +24,10 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
-                <Navbar.Brand href="#home" className='fw-bold'>Aurora Chef Hunter</Navbar.Brand>
+                <Navbar.Brand href="#home" className='fw-bold' style={{ fontFamily: 'Manrope', fontSize: '25px' }}>Aurora Chef Hunter</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mx-auto mt-16">
+                    <Nav className="mx-auto mt-16" style={{ fontFamily: 'Manrope', fontSize: '25px' }}>
                         <Link className='active' to='/' style={{ textDecoration: 'none', marginRight: '5px' }}>Home</Link>
                         <Link className='active' to='/blog' style={{ textDecoration: 'none', marginRight: '5px' }}>Blog</Link>
                         <Link className='active' to='/chefRecipe' style={{ textDecoration: 'none', marginRight: '5px' }}>Chefs Recipe</Link>

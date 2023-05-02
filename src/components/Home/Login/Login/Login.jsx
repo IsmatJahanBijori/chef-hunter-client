@@ -7,13 +7,13 @@ import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
-    const { signIn, googleUser, githubUser,loading } = useContext(AuthContext)
+    const { signIn, googleUser, githubUser, loading } = useContext(AuthContext)
     const [error, setError] = useState('')
     const navigate = useNavigate()
-    if(loading){
-        <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
+    if (loading) {
+        return (<Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </Spinner>)
     }
     const handleSignInUser = event => {
         event.preventDefault()
@@ -31,6 +31,7 @@ const Login = () => {
                     navigate('/')
                 })
                 .catch(error => {
+                    console.log(error.message)
                     setError(error.message)
                 })
         }
@@ -53,7 +54,7 @@ const Login = () => {
             })
     }
 
-    const githubSignIn=()=>{
+    const githubSignIn = () => {
         githubUser()
             .then(result => {
                 const loggedUser = result.user
@@ -80,10 +81,10 @@ const Login = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Button type="submit" onClick={googleSignIn}><FaGoogle className='me-2 text-danger'/>Google Sign in</Button>
+                    <Button type="submit" onClick={googleSignIn}><FaGoogle className='me-2 text-danger' />Google Sign in</Button>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <Button type="submit" className='btn btn-secondary'  onClick={githubSignIn}><FaGithub className='me-2'/>Github Sign in</Button>
+                    <Button type="submit" className='btn btn-secondary' onClick={githubSignIn}><FaGithub className='me-2' />Github Sign in</Button>
                 </Form.Group>
                 <p><small>No account? <Link to='/register'>Register</Link></small></p>
             </Form>
