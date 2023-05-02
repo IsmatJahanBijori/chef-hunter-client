@@ -23,18 +23,18 @@ const Login = () => {
         const password = form.password.value
         console.log(email, password)
         // email, password
-        if ((email, password)) {
-            signIn(email, password)
-                .then(result => {
-                    const createdUser = result.user
-                    console.log(createdUser)
-                    navigate('/')
-                })
-                .catch(error => {
-                    console.log(error.message)
-                    setError(error.message)
-                })
-        }
+
+        signIn(email, password)
+            .then(result => {
+                const createdUser = result.user
+                console.log(createdUser)
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error.message)
+                setError(error.message)
+            })
+
 
         event.target.reset()
 

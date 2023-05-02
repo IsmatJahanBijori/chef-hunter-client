@@ -24,17 +24,17 @@ const Register = () => {
         const photo = form.photo.value
         const password = form.password.value
         console.log(name, photo, email, password)
-        if ((email, password)) {
-            createUser(email, password)
-                .then(result => {
-                    const createdUser = result.user
-                    console.log(createdUser)
-                    navigate('/')
-                })
-                .catch(error => {
-                    setError(error.message)
-                })
-        }
+
+        createUser(email, password)
+            .then(result => {
+                const createdUser = result.user
+                console.log(createdUser)
+                navigate('/')
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+
 
         // validations
         if (!/(?=.*[A-Z])/.test(password)) {

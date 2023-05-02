@@ -6,14 +6,15 @@ import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword,
 
 // eslint-disable-next-line react/prop-types
 const auth = getAuth(app)
+// eslint-disable-next-line no-unused-vars
+const googleProvider = new GoogleAuthProvider();
+// eslint-disable-next-line no-unused-vars
+const githubProvider = new GithubAuthProvider()
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true);
-    // eslint-disable-next-line no-unused-vars
-    const googleProvider = new GoogleAuthProvider();
-    // eslint-disable-next-line no-unused-vars
-    const githubProvider = new GithubAuthProvider();
+
 
     // email, password 
     const createUser = (email, password) => {
@@ -27,12 +28,12 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signOut(auth);
     }
-    // google
-    const googleUser = (googleProvider) => {
+    // // google
+    const googleUser = () => {
         return signInWithPopup(auth, googleProvider)
     }
     // github
-    const githubUser = (githubProvider) => {
+    const githubUser = () => {
         return signInWithPopup(auth, githubProvider)
     }
 
@@ -47,7 +48,7 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
     const authInfo = {
-        user, createUser, loading, signIn, logOut, googleUser,githubUser
+        user, createUser, loading, signIn, logOut, googleUser, githubUser
     }
     return (
         <AuthContext.Provider value={authInfo}>
