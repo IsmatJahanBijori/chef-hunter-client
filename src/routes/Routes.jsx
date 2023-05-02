@@ -9,26 +9,51 @@ import Main from '../components/Layout/Main';
 import ErrorPage from '../components/ErrorPage/ErrorPage';
 import Blog from '../components/Home/Blog/Blog';
 import ChefsRecipe from '../components/Home/ChefsRecipe/ChefsRecipe';
-const router=createBrowserRouter([
+import ChefsCard from '../components/Home/ChefsCard/ChefsCard';
+const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
-        children:[
+        children: [
             {
                 path: '/blog',
                 element: <Blog></Blog>
             },
             {
                 path: '/chefRecipe',
-                element: <ChefsRecipe/>
+                element: <ChefsRecipe />
             }
-        ]
+        ],
+    },
+    {
+        path: '/chefsCardData',
+        element: <Main></Main>,
+        children: [
+            {
+                path: ':id',
+                element: <ChefsCard></ChefsCard>,
+                loader: ({ params }) => fetch(`http://localhost:5000/chefsCardData/${params.id}`)
+
+            },
+        ],
+    },
+    {
+        path: '/chefsInfo',
+        element: <Main></Main>,
+        children: [
+            {
+                path: ':id',
+                element: <ChefsRecipe></ChefsRecipe>,
+                loader: ({ params }) => fetch(`http://localhost:5000/chefsInfo/${params.id}`)
+
+            },
+        ],
     },
     {
         path: '/',
         element: <LoginLayout></LoginLayout>,
-        children:[
+        children: [
             {
                 path: '/login',
                 element: <Login></Login>
