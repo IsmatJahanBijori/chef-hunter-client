@@ -12,7 +12,6 @@ const SingleChefCard = ({ chef }) => {
     const { id, picture, name, experience, numberOfRecipes, likes } = chef
     return (
         <Container>
-
             <Card style={{ width: '20rem', marginTop: '90px', backgroundColor: '#FDF2F9' }} className='text-start p-4'>
                 <Card.Img style={{ width: '200px', marginLeft: '20px' }} variant="top" src={picture} />
                 <Card.Title style={{ marginLeft: '20px', marginTop: '10px' }}>{name}</Card.Title>
@@ -20,7 +19,7 @@ const SingleChefCard = ({ chef }) => {
                     <Card.Text><span className='fw-bold'>Experience:</span> {experience}</Card.Text>
                     <Card.Text><span className='fw-bold'>Numbers of Recipes:</span> {numberOfRecipes}</Card.Text>
                     <Card.Text><span className='fw-bold'>Likes:</span> {likes}</Card.Text>
-                    <Link to={``}><Button>View Recipe</Button></Link>
+                    <Link to={`/chefsInfo/${id}`}><Button>View Recipe</Button></Link>
                 </Card.Body>
             </Card>
         </Container>

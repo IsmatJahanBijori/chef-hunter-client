@@ -39,7 +39,17 @@ const router = createBrowserRouter([
             {
                 path: ':id',
                 element: <ChefsCard></ChefsCard>,
-                // loader: ({ params }) => fetch(`https://chef-hunter-server-ismatjahanbijori.vercel.app/chefsCardData/${params.id}`)
+            },
+        ],
+    },
+    {
+        path: '/chefsInfo',
+        element: <Main></Main>,
+        children: [
+            {
+                path: ':id',
+                element: <ChefsRecipe></ChefsRecipe>,
+                loader: ({ params }) => fetch(`http://localhost:5000/chefsInfo/${params.id}`)
 
             },
         ],

@@ -2,10 +2,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import SingleChefCard from '../SingleChefCard/SingleChefCard';
-// import SingleChefCard from '../SingleChefCard/SingleChefCard';
-// import { Card } from 'rea ct-bootstrap';
-// import { Button, Card } from 'react-bootstrap';
-// import SingleChefCard from '../SingleChefCard/SingleChefCard'
+import './ChefsCard.css'
 const ChefsCard = () => {
     const [chefs, setChefs] = useState([])
     useEffect(() => {
@@ -14,7 +11,7 @@ const ChefsCard = () => {
             .then(data => setChefs(data))
     }, [])
     return (
-        <div className='my-5 text-center'>
+        <div className='my-5 ps-5 card-design'>
             {chefs.map(chef => {
                 return <SingleChefCard key={chef.id} chef={chef}></SingleChefCard>
             })
@@ -24,16 +21,3 @@ const ChefsCard = () => {
 };
 
 export default ChefsCard;
-
-{/**<SingleChefCard key={chef.id} chef={chef}></SingleChefCard> */ }
-{/**
-<Card>
-                    <Card.Header>{chef.name}</Card.Header>
-                    <Card.Body>
-                        <Card.Title>Special title treatment</Card.Title>
-                        <Card.Text>
-                            With supporting text below as a natural lead-in to additional content.
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
-                    </Card.Body>
-                </Card> */}
