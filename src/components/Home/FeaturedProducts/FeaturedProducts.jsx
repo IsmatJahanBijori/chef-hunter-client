@@ -5,7 +5,7 @@ const FeaturedProducts = () => {
     return (
         <Container className='my-5'>
             <div className='d-flex'>
-                <h1 className='text-center mx-auto'>Featured Recipe</h1>
+                <h1 className='text-center mx-auto' style={{ fontFamily: 'Manrope', fontWeight: 'bold'}}>Featured Recipe</h1>
             </div>
             <Row className='gap-5 me-5'>
                 <Col sm={1} md={3}>

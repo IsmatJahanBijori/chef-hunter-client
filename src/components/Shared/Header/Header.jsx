@@ -27,10 +27,10 @@ const Header = () => {
                 <Navbar.Brand href="#home" className='fw-bold' style={{ fontFamily: 'Manrope', fontSize: '25px' }}>Aurora Chef Hunter</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mx-auto mt-16" style={{ fontFamily: 'Manrope', fontSize: '25px' }}>
-                        <Link className='active' to='/' style={{ textDecoration: 'none', marginRight: '5px' }}>Home</Link>
-                        <Link className='active' to='/blog' style={{ textDecoration: 'none', marginRight: '5px' }}>Blog</Link>
-                        <Link className='active' to='/chefRecipe' style={{ textDecoration: 'none', marginRight: '5px' }}>Chefs Recipe</Link>
+                    <Nav className="mx-auto mt-16">
+                        <Link to='/' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Home</Link>
+                        <Link to='/blog' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Blog</Link>
+                        <Link to='/chefRecipe' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Chef Recipe</Link>
                     </Nav>
                     <Nav>
                         {user ?
@@ -49,5 +49,13 @@ const Header = () => {
 
     );
 };
-// <a href="https://imgbb.com/"><img src="https://i.ibb.co/StStwZQ/action.png" alt="action" border="0"></a>
 export default Header;
+// className="mx-auto mt-16" style={{ fontFamily: 'Manrope', fontSize: '25px' }}  nav
+// style={{ textDecoration: 'none', marginRight: '5px' }  link
+
+{/**
+<nav className="mx-auto mt-16" style={{ fontFamily: 'Manrope', fontSize: '25px' }}>
+                        <Link to='/' className='active' style={{ textDecoration: 'none', marginRight: '5px' }}>Home</Link>
+                        <Link to='/blog' className='active' style={{ textDecoration: 'none', marginRight: '5px' }}>Blog</Link>
+                        <Link to='/chefRecipe' className='active' style={{ textDecoration: 'none', marginRight: '5px' }}>Chef Recipe</Link>
+                    </nav> */}
