@@ -28,9 +28,8 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto mt-16">
-                        <Link to='/' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Home</Link>
-                        <Link to='/blog' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Blog</Link>
-                        <Link to='/chefRecipe' style={{ textDecoration: 'none', color: 'black', marginRight: '5px' }}>Chef Recipe</Link>
+                        <Link to='/' style={{ textDecoration: 'none', color: 'black', marginRight: '5px', fontFamily: 'Manrope', fontSize: '25px' }}>Home</Link>
+                        <Link to='/blog' style={{ textDecoration: 'none', color: 'black', marginRight: '5px', fontFamily: 'Manrope', fontSize: '25px' }}>Blog</Link>
                     </Nav>
                     <Nav>
                         {user ?

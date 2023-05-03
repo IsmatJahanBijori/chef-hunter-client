@@ -1,30 +1,30 @@
+/* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { Card, ListGroup } from 'react-bootstrap';
+import { Button, Card, Col, Container, ListGroup, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const ChefsInfo = () => {
+// eslint-disable-next-line react/prop-types
+const SingleChefCard = ({ chef }) => {
+    // eslint-disable-next-line react/prop-types
+    console.log(chef)
+    // eslint-disable-next-line react/prop-types
+    const { id, picture, name, experience, numberOfRecipes, likes } = chef
     return (
-        <div>
-            <Card style={{ width: '25rem', marginTop: '90px' }}>
-                <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-                <Card.Body>
-                    <Card.Title></Card.Title>
-                    <Card.Text>
-                        
-                    </Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                    <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                </ListGroup>
-                <Card.Body>
-                    <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
+        <Container>
+
+            <Card style={{ width: '20rem', marginTop: '90px', backgroundColor: '#FDF2F9' }} className='text-start p-4'>
+                <Card.Img style={{ width: '200px', marginLeft: '20px' }} variant="top" src={picture} />
+                <Card.Title style={{ marginLeft: '20px', marginTop: '10px' }}>{name}</Card.Title>
+                <Card.Body className='mt-3' style={{ fontFamily: 'Manrope', fontSize: '20px' }}>
+                    <Card.Text><span className='fw-bold'>Experience:</span> {experience}</Card.Text>
+                    <Card.Text><span className='fw-bold'>Numbers of Recipes:</span> {numberOfRecipes}</Card.Text>
+                    <Card.Text><span className='fw-bold'>Likes:</span> {likes}</Card.Text>
+                    <Link to={``}><Button>View Recipe</Button></Link>
                 </Card.Body>
             </Card>
-        </div>
+        </Container>
     );
 };
 
-export default ChefsInfo;
+export default SingleChefCard;

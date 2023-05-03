@@ -1,21 +1,39 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
-// import ChefsInfo from '../ChefsInfo/ChefsInfo';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import SingleChefCard from '../SingleChefCard/SingleChefCard';
+// import SingleChefCard from '../SingleChefCard/SingleChefCard';
+// import { Card } from 'rea ct-bootstrap';
+// import { Button, Card } from 'react-bootstrap';
+// import SingleChefCard from '../SingleChefCard/SingleChefCard'
 const ChefsCard = () => {
-    // eslint-disable-next-line no-unused-vars
-    const {id}=useParams()
-    // eslint-disable-next-line no-unused-vars
-    const chefsCategory=useLoaderData()
-    console.log(chefsCategory)
+    const [chefs, setChefs] = useState([])
+    useEffect(() => {
+        fetch("http://localhost:5000/chefsCardData")
+            .then(res => res.json())
+            .then(data => setChefs(data))
+    }, [])
     return (
-        <div>
-        
+        <div className='my-5 text-center'>
+            {chefs.map(chef => {
+                return <SingleChefCard key={chef.id} chef={chef}></SingleChefCard>
+            })
+            }
         </div>
     );
 };
 
 export default ChefsCard;
-{/** {
-                chefsCategory.map(data => <ChefsInfo key={data.id} data={data}></ChefsInfo>)
-            } */}
+
+{/**<SingleChefCard key={chef.id} chef={chef}></SingleChefCard> */ }
+{/**
+<Card>
+                    <Card.Header>{chef.name}</Card.Header>
+                    <Card.Body>
+                        <Card.Title>Special title treatment</Card.Title>
+                        <Card.Text>
+                            With supporting text below as a natural lead-in to additional content.
+                        </Card.Text>
+                        <Button variant="primary">Go somewhere</Button>
+                    </Card.Body>
+                </Card> */}

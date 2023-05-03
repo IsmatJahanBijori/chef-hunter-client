@@ -8,6 +8,8 @@ import Main from '../components/Layout/Main';
 import ErrorPage from '../components/ErrorPage/ErrorPage';
 import Blog from '../components/Home/Blog/Blog';
 import ChefsRecipe from '../components/Home/ChefsRecipe/ChefsRecipe';
+import ChefsCard from '../components/Home/ChefsCard/ChefsCard';
+import Home from '../components/Home/Home/Home';
 
 const router = createBrowserRouter([
     {
@@ -15,6 +17,10 @@ const router = createBrowserRouter([
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
         children: [
+            {
+                path: '/',
+                element: <Home />
+            },
             {
                 path: '/blog',
                 element: <Blog></Blog>
@@ -25,7 +31,20 @@ const router = createBrowserRouter([
             }
         ],
     },
-    
+
+    {
+        path: '/chefsCardData',
+        element: <Main></Main>,
+        children: [
+            {
+                path: ':id',
+                element: <ChefsCard></ChefsCard>,
+                // loader: ({ params }) => fetch(`https://chef-hunter-server-ismatjahanbijori.vercel.app/chefsCardData/${params.id}`)
+
+            },
+        ],
+    },
+
     {
         path: '/',
         element: <LoginLayout></LoginLayout>,
@@ -51,7 +70,7 @@ export default router
             {
                 path: ':id',
                 element: <ChefsCard></ChefsCard>,
-                loader: ({ params }) => fetch(`http://localhost:5000/chefsCardData/${params.id}`)
+                loader: ({ params }) => fetch(`https://chef-hunter-server-ismatjahanbijori.vercel.app/chefsCardData/${params.id}`)
 
             },
         ],
@@ -68,3 +87,19 @@ export default router
             },
         ],
     }, */}
+{/**
+{
+        path: '/',
+        element: <Main></Main>,
+        children: [
+            {
+                path: '/',
+                element: <ChefsCard></ChefsCard>,
+                // loader: ({ params }) => fetch(`https://chef-hunter-server-ismatjahanbijori.vercel.app/chefsCardData/${params.id}`)
+
+            },
+        ],
+    },
+
+
+eta last edited*/}
