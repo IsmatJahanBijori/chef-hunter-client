@@ -34,7 +34,7 @@ const Header = () => {
                     <Nav>
                         {user ?
                             <div>
-                                <Image src="https://i.ibb.co/StStwZQ/action.png" style={{ height: '40px', marginRight: '10px' }} roundedCircle />
+                                <Image src="https://i.ibb.co/StStwZQ/action.png" title={user.displayName} style={{ height: '40px', marginRight: '10px' }} roundedCircle />
                                 <Link onClick={handleLogout}><Button variant="secondary" style={{ textDecoration: 'none', marginRight: '10px' }}>LogOut</Button></Link>
                             </div> :
                             <div>

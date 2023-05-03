@@ -11,11 +11,14 @@ const ChefsCard = () => {
             .then(data => setChefs(data))
     }, [])
     return (
-        <div className='my-5 ps-5 card-design'>
-            {chefs.map(chef => {
-                return <SingleChefCard key={chef.id} chef={chef}></SingleChefCard>
-            })
-            }
+        <div className='mt-5 text-center' style={{ fontFamily: 'Manrope', fontSize: '50px', fontWeight: 'bolder' }}>
+            <h1>Our Team</h1>
+            <div className='my-5 ps-5 card-design'>
+                {chefs.map(chef => {
+                    return <SingleChefCard key={chef.id} chef={chef}></SingleChefCard>
+                })
+                }
+            </div>
         </div>
     );
 };

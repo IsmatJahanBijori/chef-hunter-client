@@ -3,6 +3,7 @@
 import React from 'react';
 import { Button, Card, Col, Container, ListGroup, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import ChefsRecipe from '../ChefsRecipe/ChefsRecipe';
 
 // eslint-disable-next-line react/prop-types
 const SingleChefCard = ({ chef }) => {
