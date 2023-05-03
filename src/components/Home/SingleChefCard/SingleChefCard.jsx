@@ -8,7 +8,7 @@ import ChefsRecipe from '../ChefsRecipe/ChefsRecipe';
 // eslint-disable-next-line react/prop-types
 const SingleChefCard = ({ chef }) => {
     // eslint-disable-next-line react/prop-types
-    console.log(chef)
+    // console.log(chef)
     // eslint-disable-next-line react/prop-types
     const { id, picture, name, experience, numberOfRecipes, likes } = chef
     return (
