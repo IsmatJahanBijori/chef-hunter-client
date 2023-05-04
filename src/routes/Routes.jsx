@@ -10,6 +10,7 @@ import Blog from '../components/Home/Blog/Blog';
 import ChefsRecipe from '../components/Home/ChefsRecipe/ChefsRecipe';
 import ChefsCard from '../components/Home/ChefsCard/ChefsCard';
 import Home from '../components/Home/Home/Home';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -48,8 +49,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ':id',
-                element: <ChefsRecipe></ChefsRecipe>,
-                loader: ({ params }) => fetch(`http://localhost:5000/chefsInfo/${params.id}`)
+                element: <PrivateRoute><ChefsRecipe></ChefsRecipe></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://chef-hunter-server-ismatjahanbijori.vercel.app/chefsInfo/${params.id}`)
 
             },
         ],

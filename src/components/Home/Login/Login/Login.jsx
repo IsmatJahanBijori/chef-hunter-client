@@ -2,7 +2,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Spinner } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 
@@ -10,6 +10,8 @@ const Login = () => {
     const { signIn, googleUser, githubUser, loading } = useContext(AuthContext)
     const [error, setError] = useState('')
     const navigate = useNavigate()
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
     if (loading) {
         return (<Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -28,7 +30,7 @@ const Login = () => {
             .then(result => {
                 const createdUser = result.user
                 console.log(createdUser)
-                navigate('/')
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error.message)
@@ -47,7 +49,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user
                 console.log(loggedUser)
-                navigate('/')
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.message)

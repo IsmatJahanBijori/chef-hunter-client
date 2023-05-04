@@ -11,6 +11,7 @@ const ChefsRecipe = () => {
 
     return (
         <Container>
+        {/*Banner Design */}
             <Card className='mt-5 p-5'>
                 <Card.Img style={{ width: "1200px", height: '800px' }} variant="top" src={chefsInfo.picture} />
                 <Card.Body style={{ fontFamily: 'Manrope', fontSize: '30px' }}>
@@ -22,11 +23,7 @@ const ChefsRecipe = () => {
                 </Card.Body>
             </Card>
             {chefsInfo.recipes.map(recipe => <RecipeDetails key={recipe.recipes_id} recipe={recipe}></RecipeDetails>)}
-
-
         </Container>
     );
-};
-
+}
 export default ChefsRecipe;
-// console.log(recipe[0].name)

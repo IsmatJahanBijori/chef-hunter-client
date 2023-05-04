@@ -13,7 +13,7 @@ const SingleChefCard = ({ chef }) => {
     const { id, picture, name, experience, numberOfRecipes, likes } = chef
     return (
         <Container>
-            <Card style={{ width: '20rem', marginTop: '90px', backgroundColor: '#FDF2F9' }} className='text-start p-4'>
+            <Card style={{ width: '20rem', marginTop: '90px', backgroundColor: '#e7d8d3' }} className='text-start p-4'>
                 <Card.Img style={{ width: '200px', marginLeft: '20px' }} variant="top" src={picture} />
                 <Card.Title style={{ marginLeft: '20px', marginTop: '10px' }}>{name}</Card.Title>
                 <Card.Body className='mt-3' style={{ fontFamily: 'Manrope', fontSize: '20px' }}>
