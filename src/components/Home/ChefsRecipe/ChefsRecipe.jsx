@@ -4,17 +4,19 @@ import { Card, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import RecipeDetails from '../RecipeDetails/RecipeDetails';
 // import RecipeDetails from '../RecipeDetails/RecipeDetails';
-
+import LazyLoad from 'react-lazy-load';
 const ChefsRecipe = () => {
 
     const chefsInfo = useLoaderData()
 
     return (
         <Container>
-        {/*Banner Design */}
+            {/*Banner Design */}
             <Card className='mt-5 p-5'>
-                <Card.Img style={{ width: "1200px", height: '800px' }} variant="top" src={chefsInfo.picture} />
-                <Card.Body style={{ fontFamily: 'Manrope', fontSize: '30px' }}>
+                <LazyLoad height={762} offset={300}><Card.Img style={{ width: "1200px", height: '800px' }} variant="top" src={chefsInfo.picture} />
+                </LazyLoad>
+
+                <Card.Body style={{ fontFamily: 'Manrope', fontSize: '30px', marginTop: '30px' }}>
                     <Card.Text>{chefsInfo.name}</Card.Text>
                     <Card.Text style={{ fontFamily: 'Manrope', fontSize: '20px' }}>{chefsInfo.bio}</Card.Text>
                     <Card.Text>Experience: {chefsInfo.experience}</Card.Text>
