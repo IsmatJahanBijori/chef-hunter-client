@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import Lottie from "lottie-react";
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -52,6 +52,7 @@ const Reservation = () => {
                         <InputGroup.Text>With textarea</InputGroup.Text>
                         <Form.Control as="textarea" aria-label="With textarea" />
                     </InputGroup>
+                    <Button className='mt-5'>Submit</Button>
                 </Col>
             </Row>
         </Container>
