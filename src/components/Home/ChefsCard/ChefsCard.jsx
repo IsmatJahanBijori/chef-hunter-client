@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import SingleChefCard from '../SingleChefCard/SingleChefCard';
-import './ChefsCard.css'
-import { Container } from 'react-bootstrap';
+// import './ChefsCard.css'
+import { Col, Container, Row } from 'react-bootstrap';
 const ChefsCard = () => {
     const [chefs, setChefs] = useState([])
     useEffect(() => {
@@ -15,12 +15,15 @@ const ChefsCard = () => {
         <Container>
             <div className='mt-5 text-center' style={{ fontFamily: 'Manrope', fontSize: '50px', fontWeight: 'bolder' }}>
                 <h1>Our Team</h1>
-                <div className='my-5 ps-5 card-design'>
-                    {chefs.map(chef => {
-                        return <SingleChefCard key={chef.id} chef={chef}></SingleChefCard>
-                    })
-                    }
-                </div>
+                <Row>
+                    <Col sm={1} md={2} lg={3}>
+                        {chefs.map(chef => {
+                            return <SingleChefCard key={chef.id} chef={chef}></SingleChefCard>
+                        })
+                        }
+                    </Col>
+                </Row>
+
             </div>
         </Container>
     );
