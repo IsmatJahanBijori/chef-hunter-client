@@ -15,7 +15,9 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true);
 
-
+    // na hole kete dibo
+    // const [displayName, setDisplayName] = useState(null)
+    // na hole kete dibo
     // email, password 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -47,6 +49,8 @@ const AuthProvider = ({ children }) => {
             unsubscribe();
         }
     }, [])
+
+
     const authInfo = {
         user, createUser, loading, signIn, logOut, googleUser, githubUser
     }

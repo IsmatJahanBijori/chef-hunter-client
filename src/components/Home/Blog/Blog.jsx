@@ -1,10 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+import { FaDownload } from "react-icons/fa";
 const Blog = () => {
     return (
         <div className='p-5' style={{ fontFamily: 'Manrope', fontSize: '25px' }}>
         <p>In a Q&A blog post format, the blogger will literally be responding to questions in a single or series of posts. The inquiries might come from the general public and could be about the niche; they MUST be addressed because they are a crucial piece of information.</p>
+        <FaDownload className='mb-5'/>
             <Accordion>
                 <Accordion.Item eventKey="0">
                     <Accordion.Header><span className='fw-bold'>Tell us the differences between uncontrolled and controlled components.</span></Accordion.Header>

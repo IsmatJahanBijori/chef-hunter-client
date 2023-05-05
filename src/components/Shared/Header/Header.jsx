@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // eslint-disable-next-line no-unused-vars
 import React, { useContext } from 'react';
 import { Button, Image } from 'react-bootstrap';
@@ -9,6 +10,7 @@ import { Link } from 'react-router-dom';
 import './Header.css'
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
+// import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
     const handleLogout = () => {
@@ -20,7 +22,9 @@ const Header = () => {
             .catch(error => {
                 console.log(error)
             })
+
     }
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
@@ -34,7 +38,9 @@ const Header = () => {
                     <Nav>
                         {user ?
                             <div>
-                                <Image src="https://i.ibb.co/StStwZQ/action.png" title={user.displayName} style={{ height: '40px', marginRight: '10px' }} roundedCircle />
+                               
+                                    <Image src="https://i.ibb.co/StStwZQ/action.png" title={user.displayName} style={{ height: '40px', marginRight: '10px' }} roundedCircle />
+                               
                                 <Link onClick={handleLogout}><Button variant="secondary" style={{ textDecoration: 'none', marginRight: '10px' }}>LogOut</Button></Link>
                             </div> :
                             <div>
